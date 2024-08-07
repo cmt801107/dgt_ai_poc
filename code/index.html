@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="zh-tw">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>登入頁面</title>
+    <!-- AdminLTE CSS -->
+    <link rel="stylesheet" href="https://adminlte.io/themes/v3/plugins/fontawesome-free/css/all.min.css">
+    <link rel="stylesheet" href="https://adminlte.io/themes/v3/dist/css/adminlte.min.css">
+    <style>
+        .error-message {
+            display: none;
+            color: white;
+            background-color: red;
+            padding: 5px;
+            margin-top: 10px;
+            font-size: 0.9em;
+            text-align: center;
+        }
+    </style>
+</head>
+<body class="hold-transition login-page">
+    <div class="login-box">
+        <div class="login-logo">
+            <a href="#"><i class="fas fa-building"></i> <b>資料管理平台</b></a>
+        </div>
+        <div class="card">
+            <div class="card-body login-card-body">
+                <p class="login-box-msg">請登入以開始您的工作</p>
+                <form id="loginForm">
+                    <div class="input-group mb-3">
+                        <input type="email" class="form-control" placeholder="Email" id="email" required>
+                        <div class="input-group-append">
+                            <div class="input-group-text">
+                                <span class="fas fa-envelope"></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="input-group mb-3">
+                        <input type="password" class="form-control" placeholder="密碼" id="password" required>
+                        <div class="input-group-append">
+                            <div class="input-group-text">
+                                <span class="fas fa-lock"></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-4">
+                            <button type="submit" class="btn btn-primary btn-block">登入</button>
+                        </div>
+                    </div>
+                    <div class="error-message" id="error-message">
+                        <i class="fas fa-exclamation-triangle"></i> 帳號或密碼不正確！
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <!-- AdminLTE JS -->
+    <script src="https://adminlte.io/themes/v3/plugins/jquery/jquery.min.js"></script>
+    <script src="https://adminlte.io/themes/v3/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="https://adminlte.io/themes/v3/dist/js/adminlte.min.js"></script>
+    <!-- Custom JS -->
+    <script src="login.js"></script>
+</body>
+</html>
