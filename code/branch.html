@@ -10,6 +10,8 @@
     <!-- AdminLTE CSS -->
     <link rel="stylesheet" href="https://adminlte.io/themes/v3/plugins/fontawesome-free/css/all.min.css">
     <link rel="stylesheet" href="https://adminlte.io/themes/v3/dist/css/adminlte.min.css">
+    <!-- Custom CSS-->
+    <link rel="stylesheet" href="./custom.css">
 </head>
 
 <body class="hold-transition sidebar-mini">
@@ -25,13 +27,28 @@
                 </li>
             </ul>
         </nav>
-        <!-- Sidebar -->
-        <aside class="main-sidebar sidebar-dark-primary elevation-4">
-            <a href="#" class="brand-link">
-                <i class="fas fa-building"></i>
-                <span class="brand-text font-weight-light">資料管理平台</span>
-            </a>
-        </aside>
+          <!-- 側邊欄 -->
+    <aside class="main-sidebar sidebar-dark-primary elevation-4">
+        <!-- Brand Logo -->
+        <a href="#" class="brand-link">
+            <i class="fas fa-university"></i>
+            <span class="brand-text font-weight-light">資料管理平台</span>
+        </a>
+        <!-- 側邊欄內容 -->
+        <div class="sidebar">
+            <!-- 側邊欄選單 -->
+            <nav class="mt-2">
+                <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+                    <li class="nav-item">
+                        <a href="branch.html" class="nav-link">
+                            <i class="nav-icon fas fa-building"></i>
+                            <p>服務據點查詢</p>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </aside>
         <!-- Content Wrapper -->
         <div class="content-wrapper">
             <section class="content-header">
@@ -51,74 +68,81 @@
                                 <div class="col">
                                     <div class="form-group">
                                         <label for="branchCode">分行代號</label>
-                                        <input type="text" class="form-control" id="filterBranchCode" name="branchCode" required>
+                                         <input type="hidden" class="form-control" id="branchId">
+                                        <input type="text" class="form-control" id="filterBranchCode" name="branchCode"
+                                            required>
                                     </div>
                                 </div>
                                 <div class="col">
                                     <div class="form-group">
                                         <label for="branchName">據點名稱</label>
-                                        <input type="text" class="form-control" id="filterBranchName" name="branchName" required>
+                                        <input type="text" class="form-control" id="filterBranchName" name="branchName"
+                                            required>
                                     </div>
                                 </div>
                                 <div class="col">
                                     <div class="form-group">
                                         <label for="branchType">據點類型</label>
-                                        <select class="form-control" id="filterBranchType" name="filterBranchType" required>
+                                        <select class="form-control" id="filterBranchType" name="filterBranchType"
+                                            required>
                                             <option value="">請選擇</option>
-                                            <option value="1">國內據點</option>
-                                            <option value="2">企金單位</option>
-                                            <option value="3">海外單位</option>
+                                            <option value="國內據點">國內據點</option>
+                                            <option value="企金單位">企金單位</option>
+                                            <option value="海外單位">海外單位</option>
                                         </select>
                                     </div>
                                 </div>
                                 <div class="col">
                                     <div class="form-group">
                                         <label for="branchType" style="width: 100%;">啟用狀態</label>
-                                        <input type="checkbox" class="form-control" id="filterBranchStatus" name="filterBranchStatus" checked="" data-bootstrap-switch="" data-off-color="danger" data-on-color="success">
+                                        <input type="checkbox" class="form-control bootstrap-switch" id="filterBranchStatus" checked="">
                                     </div>
                                 </div>
-                                <button type="button" class="btn btn-link" id="clearFilter"><i class="fas fa-broom"></i>清除條件</button>
-                            </div>
+                                <button type="button" class="btn btn-link" id="clearFilter"><i
+                                        class="fas fa-broom"></i>清除條件</button>
                             </div>
                         </div>
-                    </div>  
-
-        <div class="card">
-            <div class="card-header">
-                <h3 class="card-title">服務據點列表</h3>
-                <div class="card-tools">
-                    <button type="button" class="btn btn-primary" onclick="openBranchModal()">新增分行</button>
+                    </div>
                 </div>
-            </div>
-            <div class="card-body">
-                <table id="branchTable" class="display">
-                    <thead>
-                        <tr>
-                            <th>分行代號</th>
-                            <th>據點名稱</th>
-                            <th>電話</th>
-                            <th>地址</th>
-                            <th>據點類型</th>
-                            <th>資料更新時間</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <!-- 這裡可以動態生成表格內容 -->
-                    </tbody>
-                </table>
-            </div>
+
+                <div class="card">
+                    <div class="card-header">
+                        <h3 class="card-title">服務據點列表</h3>
+                        <div class="card-tools">
+                            <button type="button" class="btn btn-success" onclick="openBranchModal()">新增服務據點</button>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <table id="branchTable" class="display">
+                            <thead>
+                                <tr>
+                                    <th>分行代號</th>
+                                    <th>據點名稱</th>
+                                    <th>電話</th>
+                                    <th>地址</th>
+                                    <th>據點類型</th>
+                                    <th>資料更新時間</th>
+                                    <th>啟用</th>
+                                    <th>功能</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <!-- 這裡可以動態生成表格內容 -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
         </div>
-    </div>
-    </section>
+        </section>
     </div>
     </div>
     <!-- Modal -->
     <div class="modal fade" id="branchModal" tabindex="-1" role="dialog" aria-labelledby="branchModalLabel"
         aria-hidden="true">
-        <div class="modal-dialog" role="document">
+        <div class="modal-dialog modal-lg" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="branchModalLabel">新增/編輯分行資料</h5>
+                    <h5 class="modal-title" id="branchModalLabel">新增/修改服務據點資料</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
@@ -126,33 +150,93 @@
                 <div class="modal-body">
                     <!-- Form to add/edit branch data -->
                     <form id="branchForm">
-                        <div class="form-group">
-                            <label for="branchCode">分行代號</label>
-                            <input type="text" class="form-control" id="branchCode" name="branchCode" required>
+                        <div class="row">
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label for="branchCode">分行代號</label>
+                                    <input type="text" class="form-control" id="branchCode" name="branchCode" required>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label for="branchName">服務據點名稱</label>
+                                    <input type="text" class="form-control" id="branchName" name="branchName" required>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label for="branchCode">啟用狀態</label>
+                                    <input type="checkbox" class="form-control bootstrap-switch" id="branchStatus" checked="">
+                                </div>
+                            </div>
                         </div>
-                        <div class="form-group">
-                            <label for="branchName">據點名稱</label>
-                            <input type="text" class="form-control" id="branchName" name="branchName" required>
+                        <div class="row">
+                            <div class="col">
+                                <div class="form-group">
+                                    <label for="branchType">據點類型</label>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="radio" name="branchType" id="branchType1"
+                                            value="國內據點" >
+                                        <label class="form-check-label" for="branchType1">
+                                            國內據點
+                                        </label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="radio" name="branchType" id="branchType2"
+                                            value="企金單位" >
+                                        <label class="form-check-label" for="branchType2">
+                                            企金單位
+                                        </label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="radio" name="branchType" id="branchType3"
+                                            value="海外單位" >
+                                        <label class="form-check-label" for="branchType3">
+                                            海外單位
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                        
                         </div>
-                        <div class="form-group">
-                            <label for="branchPhone">電話</label>
-                            <input type="text" class="form-control" id="branchPhone" name="branchPhone" required>
+                        <div class="row">
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label for="branchPhone">聯絡電話</label>
+                                    <input type="text" class="form-control" id="branchPhone" name="branchPhone" required>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label for="zipCode">郵遞區號</label>
+                                    <input type="text" class="form-control" id="zipCode" name="zipCode" required>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label for="branchAddress">地址</label>
+                                    <input type="text" class="form-control" id="branchAddress" name="branchAddress" required>
+                                </div>
+                            </div>
                         </div>
-                        <div class="form-group">
-                            <label for="branchAddress">地址</label>
-                            <input type="text" class="form-control" id="branchAddress" name="branchAddress" required>
+                        <div class="row">
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label for="lat">經度</label>
+                                    <input type="text" class="form-control" id="lat" name="lat" required>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label for="lng">緯度</label>
+                                    <input type="text" class="form-control" id="lng" name="lng" required>
+                                </div>
+                            </div>
                         </div>
-                        <div class="form-group">
-                            <label for="branchType">據點類型</label>
-                            <select class="form-control" id="branchType" name="branchType" required>
-                                <option value="1">類型1</option>
-                                <option value="2">類型2</option>
-                                <option value="3">類型3</option>
-                            </select>
-                        </div>
-                        <div class="form-group">
-                            <label for="branchEnabled">啟用</label>
-                            <input type="checkbox" class="form-control" id="branchEnabled" name="branchEnabled">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div id="map" style="height: 200px; width: 50%;"></div>
+                            </div>
                         </div>
                     </form>
                 </div>
@@ -171,8 +255,10 @@
     <script src="https://cdn.datatables.net/1.10.21/js/jquery.dataTables.min.js"></script>
     <!-- AdminLTE App -->
     <script src="https://adminlte.io/themes/v3/dist/js/adminlte.min.js"></script>
-     <!-- 引入 Bootstrap Switch JS -->
-     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-switch/3.3.4/js/bootstrap-switch.min.js"></script>
+    <!-- 引入 Bootstrap Switch JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-switch/3.3.4/js/bootstrap-switch.min.js"></script>
+    <!-- 引入 Google map JS -->
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC69CPBY5jTBzE-Zv55g__be_sRlpja7FE"></script>
     <!-- Custom JS -->
     <script src="branch.js"></script>
 </body>
